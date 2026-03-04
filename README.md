@@ -79,7 +79,7 @@ The effect resembles depth-averaged ensembling but is achieved for free, inside 
 
 All models: `learning_rate = 0.05`, `early_stopping_rounds = 50`, 15 independent seeds.
 
-CB-D6 receives **3× more iterations** than CB-D9, matching typical Kaggle usage where more iterations compensate for shallower trees. CB-Exp receives **2×**, giving it the same *maximum* budget as a depth-9 model with more trees.
+CB-D6 receives **3× more iterations** than CB-D9, matching typical Kaggle usage where more iterations compensate for shallower trees. CB-Exp receives **2×** trees since depth on average is smaller.
 
 ### Datasets
 
