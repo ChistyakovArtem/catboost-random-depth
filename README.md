@@ -188,3 +188,9 @@ sys.path.insert(0, "/content/catboost_depth_random/catboost/catboost/python-pack
 - [SnapBoost](https://arxiv.org/abs/2012.15373) — independently proposed a related idea of using heterogeneous base learners inside a single boosting run (weak learner type varies per iteration). This work arrives at a similar intuition from a different direction: varying tree depth rather than weak learner type, motivated by practical GBDT deployment constraints. Despite strong institutional backing (IBM & ETH Zurich), the method saw limited (2 citation and 2 Kaggle uses both in toy competitions) adoption due to high computational time (due to being fully written in Python) and lack of features of production GBDT libraries.
 - [CTR-23](https://arxiv.org/abs/2307.04214) — source of the OpenML dataset selection used in evaluation.
 - [TabM](https://github.com/yandex-research/tabm) — source of the pre-split tabular benchmark datasets used in evaluation. The datasets from TabM can be found on [Kaggle](https://www.kaggle.com/datasets/artemchistyakov/datasets-in-tabm).
+
+---
+
+## Acknowledgements
+
+Thanks to [Claude Sonnet 4.6](https://claude.ai) for assistance & [Kaggle](https://www.kaggle.com) for compute.
