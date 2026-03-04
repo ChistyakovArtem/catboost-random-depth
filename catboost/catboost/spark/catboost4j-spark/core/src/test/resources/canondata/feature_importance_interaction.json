@@ -1,0 +1,727 @@
+[
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 17,
+    "score": 4.199841584397533
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 15,
+    "score": 3.868278135552796
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 48,
+    "score": 2.6456644450628124
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 38,
+    "score": 2.3424775830727196
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 31,
+    "score": 2.302111515386826
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 14,
+    "score": 2.233451525878863
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 37,
+    "score": 2.2110141454513945
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 47,
+    "score": 2.0772141915690976
+  },
+  {
+    "firstFeatureIndex": 35,
+    "secondFeatureIndex": 47,
+    "score": 1.9971528469908069
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 20,
+    "score": 1.9151197439405614
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 46,
+    "score": 1.8836270862178233
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 6,
+    "score": 1.8073989183835848
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 35,
+    "score": 1.7986451255112095
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 35,
+    "score": 1.7638683618742448
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 48,
+    "score": 1.7406328698803855
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 46,
+    "score": 1.6958722603271759
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 48,
+    "score": 1.6725361583512006
+  },
+  {
+    "firstFeatureIndex": 35,
+    "secondFeatureIndex": 38,
+    "score": 1.4864836712075558
+  },
+  {
+    "firstFeatureIndex": 31,
+    "secondFeatureIndex": 37,
+    "score": 1.4217414438662064
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 38,
+    "score": 1.329624904900376
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 13,
+    "score": 1.292488825621696
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 24,
+    "score": 1.2845389573685086
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 35,
+    "score": 1.2052060032545797
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 35,
+    "score": 1.131426091578019
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 31,
+    "score": 1.0847645764933342
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 24,
+    "score": 1.0795685537114355
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 31,
+    "score": 1.0759926116977265
+  },
+  {
+    "firstFeatureIndex": 9,
+    "secondFeatureIndex": 37,
+    "score": 0.9975482782348879
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 47,
+    "score": 0.9906412628181088
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 14,
+    "score": 0.9535270233646053
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 39,
+    "score": 0.9502614259957678
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 48,
+    "score": 0.9431498747548349
+  },
+  {
+    "firstFeatureIndex": 13,
+    "secondFeatureIndex": 15,
+    "score": 0.9357214675189898
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 37,
+    "score": 0.9331328232043227
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 35,
+    "score": 0.9301172647455468
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 2,
+    "score": 0.9257605976964703
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 47,
+    "score": 0.907083920198524
+  },
+  {
+    "firstFeatureIndex": 28,
+    "secondFeatureIndex": 48,
+    "score": 0.8845848004154768
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 46,
+    "score": 0.8655359077817406
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 31,
+    "score": 0.8628858925906036
+  },
+  {
+    "firstFeatureIndex": 46,
+    "secondFeatureIndex": 47,
+    "score": 0.8434572525484025
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 48,
+    "score": 0.8075035417841273
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 47,
+    "score": 0.8030991703251245
+  },
+  {
+    "firstFeatureIndex": 35,
+    "secondFeatureIndex": 46,
+    "score": 0.7899424972075691
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 47,
+    "score": 0.7820744012542609
+  },
+  {
+    "firstFeatureIndex": 37,
+    "secondFeatureIndex": 38,
+    "score": 0.7734454584731435
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 15,
+    "score": 0.7634263435394406
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 16,
+    "score": 0.7601954335807636
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 37,
+    "score": 0.7468553008132309
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 46,
+    "score": 0.7052622167136744
+  },
+  {
+    "firstFeatureIndex": 12,
+    "secondFeatureIndex": 31,
+    "score": 0.6956023927827494
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 20,
+    "score": 0.6863794965554069
+  },
+  {
+    "firstFeatureIndex": 35,
+    "secondFeatureIndex": 37,
+    "score": 0.6754597550911567
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 47,
+    "score": 0.6690961304878043
+  },
+  {
+    "firstFeatureIndex": 31,
+    "secondFeatureIndex": 46,
+    "score": 0.6149700168964224
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 46,
+    "score": 0.6017114052574022
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 28,
+    "score": 0.600780367372577
+  },
+  {
+    "firstFeatureIndex": 26,
+    "secondFeatureIndex": 35,
+    "score": 0.5964195482985092
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 17,
+    "score": 0.5850242191245705
+  },
+  {
+    "firstFeatureIndex": 23,
+    "secondFeatureIndex": 48,
+    "score": 0.5718921694317672
+  },
+  {
+    "firstFeatureIndex": 39,
+    "secondFeatureIndex": 48,
+    "score": 0.5699840482169805
+  },
+  {
+    "firstFeatureIndex": 37,
+    "secondFeatureIndex": 47,
+    "score": 0.5645543991072876
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 23,
+    "score": 0.5572802188202566
+  },
+  {
+    "firstFeatureIndex": 13,
+    "secondFeatureIndex": 47,
+    "score": 0.5478170260175305
+  },
+  {
+    "firstFeatureIndex": 13,
+    "secondFeatureIndex": 31,
+    "score": 0.5366809165448235
+  },
+  {
+    "firstFeatureIndex": 7,
+    "secondFeatureIndex": 48,
+    "score": 0.5311681652068937
+  },
+  {
+    "firstFeatureIndex": 24,
+    "secondFeatureIndex": 38,
+    "score": 0.5229861908373306
+  },
+  {
+    "firstFeatureIndex": 31,
+    "secondFeatureIndex": 48,
+    "score": 0.5207229605630049
+  },
+  {
+    "firstFeatureIndex": 38,
+    "secondFeatureIndex": 47,
+    "score": 0.4961508380065694
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 17,
+    "score": 0.49551723668310504
+  },
+  {
+    "firstFeatureIndex": 7,
+    "secondFeatureIndex": 20,
+    "score": 0.48731893187638026
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 49,
+    "score": 0.4750012300987353
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 20,
+    "score": 0.47102005182622686
+  },
+  {
+    "firstFeatureIndex": 24,
+    "secondFeatureIndex": 35,
+    "score": 0.47092942751120104
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 26,
+    "score": 0.4677252558780294
+  },
+  {
+    "firstFeatureIndex": 9,
+    "secondFeatureIndex": 15,
+    "score": 0.4589938600366038
+  },
+  {
+    "firstFeatureIndex": 23,
+    "secondFeatureIndex": 47,
+    "score": 0.44418483961393956
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 24,
+    "score": 0.44273770113596994
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 13,
+    "score": 0.4394143523688977
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 35,
+    "score": 0.4304624277810843
+  },
+  {
+    "firstFeatureIndex": 46,
+    "secondFeatureIndex": 49,
+    "score": 0.4253483998682041
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 12,
+    "score": 0.42407485383007754
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 38,
+    "score": 0.40303400204608975
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 16,
+    "score": 0.3860605889213486
+  },
+  {
+    "firstFeatureIndex": 20,
+    "secondFeatureIndex": 38,
+    "score": 0.3775037028443194
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 28,
+    "score": 0.3759597703186607
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 17,
+    "score": 0.3706746369364388
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 7,
+    "score": 0.3595393316658117
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 31,
+    "score": 0.35703095595160494
+  },
+  {
+    "firstFeatureIndex": 35,
+    "secondFeatureIndex": 48,
+    "score": 0.35015401518838557
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 15,
+    "score": 0.34973064520525426
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 48,
+    "score": 0.34715941407849044
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 23,
+    "score": 0.3461917436218819
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 37,
+    "score": 0.3449186210241091
+  },
+  {
+    "firstFeatureIndex": 16,
+    "secondFeatureIndex": 46,
+    "score": 0.3362365964499151
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 35,
+    "score": 0.30008535178558915
+  },
+  {
+    "firstFeatureIndex": 9,
+    "secondFeatureIndex": 31,
+    "score": 0.2999168163731288
+  },
+  {
+    "firstFeatureIndex": 12,
+    "secondFeatureIndex": 14,
+    "score": 0.2954452531692987
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 49,
+    "score": 0.2849165406452121
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 35,
+    "score": 0.2818214017020743
+  },
+  {
+    "firstFeatureIndex": 38,
+    "secondFeatureIndex": 48,
+    "score": 0.2659503834907879
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 2,
+    "score": 0.26160278019492067
+  },
+  {
+    "firstFeatureIndex": 24,
+    "secondFeatureIndex": 39,
+    "score": 0.2558490163522233
+  },
+  {
+    "firstFeatureIndex": 13,
+    "secondFeatureIndex": 37,
+    "score": 0.25354908976688445
+  },
+  {
+    "firstFeatureIndex": 0,
+    "secondFeatureIndex": 46,
+    "score": 0.24386672616113245
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 38,
+    "score": 0.2341746284843326
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 14,
+    "score": 0.23159173291317997
+  },
+  {
+    "firstFeatureIndex": 3,
+    "secondFeatureIndex": 35,
+    "score": 0.22992295793287323
+  },
+  {
+    "firstFeatureIndex": 9,
+    "secondFeatureIndex": 13,
+    "score": 0.22776697087638992
+  },
+  {
+    "firstFeatureIndex": 12,
+    "secondFeatureIndex": 46,
+    "score": 0.22236029297096205
+  },
+  {
+    "firstFeatureIndex": 26,
+    "secondFeatureIndex": 31,
+    "score": 0.22200759030315248
+  },
+  {
+    "firstFeatureIndex": 12,
+    "secondFeatureIndex": 49,
+    "score": 0.20842430939381995
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 27,
+    "score": 0.20470765628807855
+  },
+  {
+    "firstFeatureIndex": 3,
+    "secondFeatureIndex": 15,
+    "score": 0.2046932516308602
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 3,
+    "score": 0.20103355107993887
+  },
+  {
+    "firstFeatureIndex": 7,
+    "secondFeatureIndex": 35,
+    "score": 0.1992349947105215
+  },
+  {
+    "firstFeatureIndex": 17,
+    "secondFeatureIndex": 37,
+    "score": 0.1916639220600562
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 15,
+    "score": 0.18579434418204832
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 17,
+    "score": 0.17971643452032518
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 16,
+    "score": 0.1666182381688387
+  },
+  {
+    "firstFeatureIndex": 23,
+    "secondFeatureIndex": 35,
+    "score": 0.16453592527939137
+  },
+  {
+    "firstFeatureIndex": 3,
+    "secondFeatureIndex": 48,
+    "score": 0.16430006022326973
+  },
+  {
+    "firstFeatureIndex": 24,
+    "secondFeatureIndex": 48,
+    "score": 0.16005182734100498
+  },
+  {
+    "firstFeatureIndex": 37,
+    "secondFeatureIndex": 46,
+    "score": 0.1456367786858502
+  },
+  {
+    "firstFeatureIndex": 28,
+    "secondFeatureIndex": 38,
+    "score": 0.1447535144044178
+  },
+  {
+    "firstFeatureIndex": 37,
+    "secondFeatureIndex": 48,
+    "score": 0.13719353119486388
+  },
+  {
+    "firstFeatureIndex": 3,
+    "secondFeatureIndex": 23,
+    "score": 0.12021855220612152
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 17,
+    "score": 0.1154049162094319
+  },
+  {
+    "firstFeatureIndex": 7,
+    "secondFeatureIndex": 47,
+    "score": 0.11464102914735272
+  },
+  {
+    "firstFeatureIndex": 31,
+    "secondFeatureIndex": 49,
+    "score": 0.11241205108286989
+  },
+  {
+    "firstFeatureIndex": 27,
+    "secondFeatureIndex": 47,
+    "score": 0.08827581538125084
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 31,
+    "score": 0.08752363851735342
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 28,
+    "score": 0.0861458875219427
+  },
+  {
+    "firstFeatureIndex": 23,
+    "secondFeatureIndex": 27,
+    "score": 0.06585557763016915
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 9,
+    "score": 0.06077663907428332
+  },
+  {
+    "firstFeatureIndex": 47,
+    "secondFeatureIndex": 48,
+    "score": 0.05847385258154051
+  },
+  {
+    "firstFeatureIndex": 31,
+    "secondFeatureIndex": 35,
+    "score": 0.05531913640175674
+  },
+  {
+    "firstFeatureIndex": 1,
+    "secondFeatureIndex": 38,
+    "score": 0.03387001501816716
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 26,
+    "score": 0.014572440706978673
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 24,
+    "score": 0.010782203778534356
+  },
+  {
+    "firstFeatureIndex": 15,
+    "secondFeatureIndex": 26,
+    "score": 0.0070888238744359205
+  },
+  {
+    "firstFeatureIndex": 14,
+    "secondFeatureIndex": 15,
+    "score": 0.006260809323633924
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 48,
+    "score": 0.0053733129803568225
+  },
+  {
+    "firstFeatureIndex": 2,
+    "secondFeatureIndex": 39,
+    "score": 0.0038989610140812863
+  },
+  {
+    "firstFeatureIndex": 6,
+    "secondFeatureIndex": 47,
+    "score": 0.00036331477642448276
+  }
+]

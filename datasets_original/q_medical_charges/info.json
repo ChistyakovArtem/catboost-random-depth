@@ -1,0 +1,9 @@
+{
+    "name": "regression-num-medium-0-medical_charges",
+    "id": "regression-num-medium-0-medical_charges",
+    "task_type": "regression",
+    "train_size": 10000,
+    "val_size": 45919,
+    "test_size": 50000,
+    "n_num_features": 3
+}

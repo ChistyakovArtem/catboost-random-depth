@@ -1,0 +1,764 @@
+{
+  "calc_type_Regular": [
+    3.538535957398059e-05,
+    8.522746334223286e-05,
+    0.0009756728166789991,
+    3.2709130819152943e-07,
+    0.0,
+    0.0,
+    9.636359063762423e-05,
+    2.432997461759845e-05,
+    0.0,
+    3.543142562463519e-05,
+    0.0,
+    0.0,
+    3.2302796918043386e-06,
+    1.7663409521320728e-05,
+    0.000108381596531551,
+    0.00013784107625455788,
+    2.65909891581928e-05,
+    6.718704160832423e-05,
+    0.0,
+    0.0,
+    0.00016522586813651208,
+    0.0,
+    0.0,
+    1.0906878738323189e-05,
+    8.547849270788832e-05,
+    0.0,
+    5.209010248863333e-06,
+    4.479899400847143e-06,
+    2.8590615723675383e-05,
+    0.0,
+    0.0,
+    8.467244615151248e-05,
+    0.0,
+    0.0,
+    0.0,
+    0.0002520515112431343,
+    0.0,
+    7.650000948185298e-05,
+    5.8148522369599887e-05,
+    2.087559504208858e-05,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.00011053966365907886,
+    0.0001922081999632952,
+    0.00025673512218576944,
+    3.1759558832833434e-06
+  ],
+  "calc_type_Regular_prettified": [
+    {
+      "featureName": "2",
+      "importance": 0.0009756728166789991
+    },
+    {
+      "featureName": "48",
+      "importance": 0.00025673512218576944
+    },
+    {
+      "featureName": "35",
+      "importance": 0.0002520515112431343
+    },
+    {
+      "featureName": "47",
+      "importance": 0.0001922081999632952
+    },
+    {
+      "featureName": "20",
+      "importance": 0.00016522586813651208
+    },
+    {
+      "featureName": "15",
+      "importance": 0.00013784107625455788
+    },
+    {
+      "featureName": "46",
+      "importance": 0.00011053966365907886
+    },
+    {
+      "featureName": "14",
+      "importance": 0.000108381596531551
+    },
+    {
+      "featureName": "6",
+      "importance": 9.636359063762423e-05
+    },
+    {
+      "featureName": "24",
+      "importance": 8.547849270788832e-05
+    },
+    {
+      "featureName": "1",
+      "importance": 8.522746334223286e-05
+    },
+    {
+      "featureName": "31",
+      "importance": 8.467244615151248e-05
+    },
+    {
+      "featureName": "37",
+      "importance": 7.650000948185298e-05
+    },
+    {
+      "featureName": "17",
+      "importance": 6.718704160832423e-05
+    },
+    {
+      "featureName": "38",
+      "importance": 5.8148522369599887e-05
+    },
+    {
+      "featureName": "9",
+      "importance": 3.543142562463519e-05
+    },
+    {
+      "featureName": "0",
+      "importance": 3.538535957398059e-05
+    },
+    {
+      "featureName": "28",
+      "importance": 2.8590615723675383e-05
+    },
+    {
+      "featureName": "16",
+      "importance": 2.65909891581928e-05
+    },
+    {
+      "featureName": "7",
+      "importance": 2.432997461759845e-05
+    },
+    {
+      "featureName": "39",
+      "importance": 2.087559504208858e-05
+    },
+    {
+      "featureName": "13",
+      "importance": 1.7663409521320728e-05
+    },
+    {
+      "featureName": "23",
+      "importance": 1.0906878738323189e-05
+    },
+    {
+      "featureName": "26",
+      "importance": 5.209010248863333e-06
+    },
+    {
+      "featureName": "27",
+      "importance": 4.479899400847143e-06
+    },
+    {
+      "featureName": "12",
+      "importance": 3.2302796918043386e-06
+    },
+    {
+      "featureName": "49",
+      "importance": 3.1759558832833434e-06
+    },
+    {
+      "featureName": "3",
+      "importance": 3.2709130819152943e-07
+    },
+    {
+      "featureName": "4",
+      "importance": 0.0
+    },
+    {
+      "featureName": "5",
+      "importance": 0.0
+    },
+    {
+      "featureName": "8",
+      "importance": 0.0
+    },
+    {
+      "featureName": "10",
+      "importance": 0.0
+    },
+    {
+      "featureName": "11",
+      "importance": 0.0
+    },
+    {
+      "featureName": "18",
+      "importance": 0.0
+    },
+    {
+      "featureName": "19",
+      "importance": 0.0
+    },
+    {
+      "featureName": "21",
+      "importance": 0.0
+    },
+    {
+      "featureName": "22",
+      "importance": 0.0
+    },
+    {
+      "featureName": "25",
+      "importance": 0.0
+    },
+    {
+      "featureName": "29",
+      "importance": 0.0
+    },
+    {
+      "featureName": "30",
+      "importance": 0.0
+    },
+    {
+      "featureName": "32",
+      "importance": 0.0
+    },
+    {
+      "featureName": "33",
+      "importance": 0.0
+    },
+    {
+      "featureName": "34",
+      "importance": 0.0
+    },
+    {
+      "featureName": "36",
+      "importance": 0.0
+    },
+    {
+      "featureName": "40",
+      "importance": 0.0
+    },
+    {
+      "featureName": "41",
+      "importance": 0.0
+    },
+    {
+      "featureName": "42",
+      "importance": 0.0
+    },
+    {
+      "featureName": "43",
+      "importance": 0.0
+    },
+    {
+      "featureName": "44",
+      "importance": 0.0
+    },
+    {
+      "featureName": "45",
+      "importance": 0.0
+    }
+  ],
+  "calc_type_Approximate": [
+    1.6355936821310646e-05,
+    4.0251780061201226e-05,
+    0.00171560823945123,
+    4.059857112992393e-08,
+    0.0,
+    0.0,
+    4.1294421397303216e-05,
+    3.805639388025639e-05,
+    0.0,
+    6.443092690021357e-05,
+    0.0,
+    0.0,
+    3.9767092438469653e-08,
+    1.5456728389540153e-05,
+    7.102396390329391e-05,
+    9.203981716217335e-05,
+    1.9468078870571448e-05,
+    3.321773350251078e-05,
+    0.0,
+    0.0,
+    0.00014690073314849172,
+    0.0,
+    0.0,
+    1.855705868430979e-05,
+    1.4869906236253394e-05,
+    0.0,
+    1.5117219758359335e-06,
+    9.263545992524436e-06,
+    1.3815992987428749e-05,
+    0.0,
+    0.0,
+    8.355600626748505e-05,
+    0.0,
+    0.0,
+    0.0,
+    0.0001524065772941091,
+    0.0,
+    1.736398950737128e-05,
+    6.103418227002e-05,
+    6.266691009060299e-06,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    5.874773432053282e-05,
+    0.00011777978419590107,
+    0.00017559130392375,
+    -4.240304428415609e-08
+  ],
+  "calc_type_Approximate_prettified": [
+    {
+      "featureName": "2",
+      "importance": 0.00171560823945123
+    },
+    {
+      "featureName": "48",
+      "importance": 0.00017559130392375
+    },
+    {
+      "featureName": "35",
+      "importance": 0.0001524065772941091
+    },
+    {
+      "featureName": "20",
+      "importance": 0.00014690073314849172
+    },
+    {
+      "featureName": "47",
+      "importance": 0.00011777978419590107
+    },
+    {
+      "featureName": "15",
+      "importance": 9.203981716217335e-05
+    },
+    {
+      "featureName": "31",
+      "importance": 8.355600626748505e-05
+    },
+    {
+      "featureName": "14",
+      "importance": 7.102396390329391e-05
+    },
+    {
+      "featureName": "9",
+      "importance": 6.443092690021357e-05
+    },
+    {
+      "featureName": "38",
+      "importance": 6.103418227002e-05
+    },
+    {
+      "featureName": "46",
+      "importance": 5.874773432053282e-05
+    },
+    {
+      "featureName": "6",
+      "importance": 4.1294421397303216e-05
+    },
+    {
+      "featureName": "1",
+      "importance": 4.0251780061201226e-05
+    },
+    {
+      "featureName": "7",
+      "importance": 3.805639388025639e-05
+    },
+    {
+      "featureName": "17",
+      "importance": 3.321773350251078e-05
+    },
+    {
+      "featureName": "16",
+      "importance": 1.9468078870571448e-05
+    },
+    {
+      "featureName": "23",
+      "importance": 1.855705868430979e-05
+    },
+    {
+      "featureName": "37",
+      "importance": 1.736398950737128e-05
+    },
+    {
+      "featureName": "0",
+      "importance": 1.6355936821310646e-05
+    },
+    {
+      "featureName": "13",
+      "importance": 1.5456728389540153e-05
+    },
+    {
+      "featureName": "24",
+      "importance": 1.4869906236253394e-05
+    },
+    {
+      "featureName": "28",
+      "importance": 1.3815992987428749e-05
+    },
+    {
+      "featureName": "27",
+      "importance": 9.263545992524436e-06
+    },
+    {
+      "featureName": "39",
+      "importance": 6.266691009060299e-06
+    },
+    {
+      "featureName": "26",
+      "importance": 1.5117219758359335e-06
+    },
+    {
+      "featureName": "3",
+      "importance": 4.059857112992393e-08
+    },
+    {
+      "featureName": "12",
+      "importance": 3.9767092438469653e-08
+    },
+    {
+      "featureName": "4",
+      "importance": 0.0
+    },
+    {
+      "featureName": "5",
+      "importance": 0.0
+    },
+    {
+      "featureName": "8",
+      "importance": 0.0
+    },
+    {
+      "featureName": "10",
+      "importance": 0.0
+    },
+    {
+      "featureName": "11",
+      "importance": 0.0
+    },
+    {
+      "featureName": "18",
+      "importance": 0.0
+    },
+    {
+      "featureName": "19",
+      "importance": 0.0
+    },
+    {
+      "featureName": "21",
+      "importance": 0.0
+    },
+    {
+      "featureName": "22",
+      "importance": 0.0
+    },
+    {
+      "featureName": "25",
+      "importance": 0.0
+    },
+    {
+      "featureName": "29",
+      "importance": 0.0
+    },
+    {
+      "featureName": "30",
+      "importance": 0.0
+    },
+    {
+      "featureName": "32",
+      "importance": 0.0
+    },
+    {
+      "featureName": "33",
+      "importance": 0.0
+    },
+    {
+      "featureName": "34",
+      "importance": 0.0
+    },
+    {
+      "featureName": "36",
+      "importance": 0.0
+    },
+    {
+      "featureName": "40",
+      "importance": 0.0
+    },
+    {
+      "featureName": "41",
+      "importance": 0.0
+    },
+    {
+      "featureName": "42",
+      "importance": 0.0
+    },
+    {
+      "featureName": "43",
+      "importance": 0.0
+    },
+    {
+      "featureName": "44",
+      "importance": 0.0
+    },
+    {
+      "featureName": "45",
+      "importance": 0.0
+    },
+    {
+      "featureName": "49",
+      "importance": -4.240304428415609e-08
+    }
+  ],
+  "calc_type_Exact": [
+    5.9455713539866006e-05,
+    8.751440332087357e-05,
+    0.0009523393059937824,
+    7.31873974230135e-07,
+    0.0,
+    0.0,
+    0.00010854038500821006,
+    1.3510467686217442e-05,
+    0.0,
+    2.6182389043283294e-05,
+    0.0,
+    0.0,
+    3.2817027625781092e-06,
+    1.7757788407582464e-05,
+    0.0001054519855029773,
+    0.00013458631577063784,
+    3.299318034256926e-05,
+    5.761520757456562e-05,
+    0.0,
+    0.0,
+    0.00013941614083087805,
+    0.0,
+    0.0,
+    9.045854913125595e-06,
+    8.663405236861155e-05,
+    0.0,
+    5.117451837399756e-06,
+    4.428657766120114e-06,
+    2.940361723439977e-05,
+    0.0,
+    0.0,
+    0.00010955181815100468,
+    0.0,
+    0.0,
+    0.0,
+    0.00026173265396702006,
+    0.0,
+    9.632333366885182e-05,
+    3.0024193864636173e-05,
+    2.010060257855162e-05,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.00010100474885745003,
+    0.00022662809268846063,
+    0.00023940752282157474,
+    3.951014798192487e-06
+  ],
+  "calc_type_Exact_prettified": [
+    {
+      "featureName": "2",
+      "importance": 0.0009523393059937824
+    },
+    {
+      "featureName": "35",
+      "importance": 0.00026173265396702006
+    },
+    {
+      "featureName": "48",
+      "importance": 0.00023940752282157474
+    },
+    {
+      "featureName": "47",
+      "importance": 0.00022662809268846063
+    },
+    {
+      "featureName": "20",
+      "importance": 0.00013941614083087805
+    },
+    {
+      "featureName": "15",
+      "importance": 0.00013458631577063784
+    },
+    {
+      "featureName": "31",
+      "importance": 0.00010955181815100468
+    },
+    {
+      "featureName": "6",
+      "importance": 0.00010854038500821006
+    },
+    {
+      "featureName": "14",
+      "importance": 0.0001054519855029773
+    },
+    {
+      "featureName": "46",
+      "importance": 0.00010100474885745003
+    },
+    {
+      "featureName": "37",
+      "importance": 9.632333366885182e-05
+    },
+    {
+      "featureName": "1",
+      "importance": 8.751440332087357e-05
+    },
+    {
+      "featureName": "24",
+      "importance": 8.663405236861155e-05
+    },
+    {
+      "featureName": "0",
+      "importance": 5.9455713539866006e-05
+    },
+    {
+      "featureName": "17",
+      "importance": 5.761520757456562e-05
+    },
+    {
+      "featureName": "16",
+      "importance": 3.299318034256926e-05
+    },
+    {
+      "featureName": "38",
+      "importance": 3.0024193864636173e-05
+    },
+    {
+      "featureName": "28",
+      "importance": 2.940361723439977e-05
+    },
+    {
+      "featureName": "9",
+      "importance": 2.6182389043283294e-05
+    },
+    {
+      "featureName": "39",
+      "importance": 2.010060257855162e-05
+    },
+    {
+      "featureName": "13",
+      "importance": 1.7757788407582464e-05
+    },
+    {
+      "featureName": "7",
+      "importance": 1.3510467686217442e-05
+    },
+    {
+      "featureName": "23",
+      "importance": 9.045854913125595e-06
+    },
+    {
+      "featureName": "26",
+      "importance": 5.117451837399756e-06
+    },
+    {
+      "featureName": "27",
+      "importance": 4.428657766120114e-06
+    },
+    {
+      "featureName": "49",
+      "importance": 3.951014798192487e-06
+    },
+    {
+      "featureName": "12",
+      "importance": 3.2817027625781092e-06
+    },
+    {
+      "featureName": "3",
+      "importance": 7.31873974230135e-07
+    },
+    {
+      "featureName": "4",
+      "importance": 0.0
+    },
+    {
+      "featureName": "5",
+      "importance": 0.0
+    },
+    {
+      "featureName": "8",
+      "importance": 0.0
+    },
+    {
+      "featureName": "10",
+      "importance": 0.0
+    },
+    {
+      "featureName": "11",
+      "importance": 0.0
+    },
+    {
+      "featureName": "18",
+      "importance": 0.0
+    },
+    {
+      "featureName": "19",
+      "importance": 0.0
+    },
+    {
+      "featureName": "21",
+      "importance": 0.0
+    },
+    {
+      "featureName": "22",
+      "importance": 0.0
+    },
+    {
+      "featureName": "25",
+      "importance": 0.0
+    },
+    {
+      "featureName": "29",
+      "importance": 0.0
+    },
+    {
+      "featureName": "30",
+      "importance": 0.0
+    },
+    {
+      "featureName": "32",
+      "importance": 0.0
+    },
+    {
+      "featureName": "33",
+      "importance": 0.0
+    },
+    {
+      "featureName": "34",
+      "importance": 0.0
+    },
+    {
+      "featureName": "36",
+      "importance": 0.0
+    },
+    {
+      "featureName": "40",
+      "importance": 0.0
+    },
+    {
+      "featureName": "41",
+      "importance": 0.0
+    },
+    {
+      "featureName": "42",
+      "importance": 0.0
+    },
+    {
+      "featureName": "43",
+      "importance": 0.0
+    },
+    {
+      "featureName": "44",
+      "importance": 0.0
+    },
+    {
+      "featureName": "45",
+      "importance": 0.0
+    }
+  ]
+}

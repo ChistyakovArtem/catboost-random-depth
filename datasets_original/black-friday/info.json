@@ -1,0 +1,11 @@
+{
+    "name": "Black Friday OPENML",
+    "id": "black-friday--default",
+    "task_type": "regression",
+    "n_num_features": 4,
+    "n_cat_features": 4,
+    "train_size": 106764,
+    "val_size": 26692,
+    "test_size": 33365,
+    "n_bin_features": 1
+}

@@ -1,0 +1,19 @@
+{
+    "ARCADIA_PATCH_NUMBER": 49321,
+    "ARCADIA_SOURCE_HG_HASH": "f19282cfd47b732b9fc8069e4b62655876e9db6d",
+    "ARCADIA_SOURCE_LAST_AUTHOR": "akhropov <akhropov@yandex-team.com>",
+    "ARCADIA_SOURCE_LAST_CHANGE": 9293085,
+    "ARCADIA_SOURCE_PATH": "/home/artem/Articles_and_Projects/gbdt_with_variable_learners/catboost_change/catboost",
+    "ARCADIA_SOURCE_REVISION": -1,
+    "ARCADIA_SOURCE_URL": "",
+    "ARCADIA_TAG": "",
+    "BRANCH": "heads/master",
+    "BUILD_DATE": "2026-02-15T21:01:54.000000Z",
+    "BUILD_TIMESTAMP": 1771189314,
+    "BUILD_USER": "artem",
+    "CUSTOM_VERSION": "",
+    "DIRTY": "",
+    "PROGRAM_VERSION": "Git info:\n    Commit: f19282cfd47b732b9fc8069e4b62655876e9db6d\n    Branch: heads/master\n    Author: akhropov <akhropov@yandex-team.com>\n    Summary: Use version of maximize-build-space with a fix for images w/o /mnt. commit_hash:2619f29a362f35cf594f49f9bea4b9e76d19ee8a\n    git-svn info:\n    Last Changed Rev: 9293085\n\nOther info:\n    Build by: artem\n    Top src dir: /home/artem/Articles_and_Projects/gbdt_with_variable_learners/catboost_change/catboost\n",
+    "SCM_DATA": "Git info:\n    Commit: f19282cfd47b732b9fc8069e4b62655876e9db6d\n    Branch: heads/master\n    Author: akhropov <akhropov@yandex-team.com>\n    Summary: Use version of maximize-build-space with a fix for images w/o /mnt. commit_hash:2619f29a362f35cf594f49f9bea4b9e76d19ee8a\n    git-svn info:\n    Last Changed Rev: 9293085\n",
+    "VCS": "git"
+}

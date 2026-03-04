@@ -1,0 +1,12 @@
+{
+    "name": "Covertype2",
+    "id": "covtype2--default",
+    "task_type": "multiclass",
+    "n_num_features": 10,
+    "n_cat_features": 1,
+    "train_size": 371847,
+    "val_size": 92962,
+    "test_size": 116203,
+    "n_classes": 7,
+    "n_bin_features": 4
+}

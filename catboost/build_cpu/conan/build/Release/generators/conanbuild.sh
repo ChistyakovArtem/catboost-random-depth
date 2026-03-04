@@ -1,0 +1,1 @@
+. "/home/artem/Articles_and_Projects/gbdt_with_variable_learners/catboost_change/catboost/build_cpu/conan/build/Release/generators/conanbuildenv-release-x86_64.sh"

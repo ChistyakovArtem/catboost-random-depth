@@ -1,0 +1,9 @@
+{
+    "name": "regression-num-large-0-year",
+    "id": "regression-num-large-0-year",
+    "task_type": "regression",
+    "train_size": 50000,
+    "val_size": 15489,
+    "test_size": 36141,
+    "n_num_features": 90
+}

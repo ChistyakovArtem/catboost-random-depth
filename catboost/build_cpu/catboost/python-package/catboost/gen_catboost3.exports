@@ -1,0 +1,7 @@
+{
+global:
+    extern "C" {
+        PyInit__catboost;
+    };
+local: *;
+};

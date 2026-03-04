@@ -1,0 +1,1 @@
+. "/home/artem/Articles_and_Projects/gbdt_with_variable_learners/catboost_change/catboost/catboost/python-package/build/temp.linux-x86_64-cpython-310/conan/build/Release/generators/deactivate_conanbuildenv-release-x86_64.sh"

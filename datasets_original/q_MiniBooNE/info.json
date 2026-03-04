@@ -1,0 +1,9 @@
+{
+    "name": "classif-num-large-0-MiniBooNE",
+    "id": "classif-num-large-0-MiniBooNE",
+    "task_type": "binclass",
+    "train_size": 50000,
+    "val_size": 6899,
+    "test_size": 16099,
+    "n_num_features": 50
+}
