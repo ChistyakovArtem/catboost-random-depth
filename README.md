@@ -136,6 +136,8 @@ CB-D6 receives **3× more iterations** than CB-D9, matching typical Kaggle usage
 
 ![Time Ratio Depthwise](visualization_notebooks/fig_time_ratio_depthwise.png)
 
+Note that **inference time** is the same for both Exp and D-6 since (trees_exp/trees_d6).mean() = 1 and E[U[3..9]] = 6. Experimentally confirmed
+
 SymmetricTree figures are available in `visualization_notebooks/` (PDF and PNG).
 
 ---
