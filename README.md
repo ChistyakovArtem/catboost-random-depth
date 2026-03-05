@@ -144,7 +144,7 @@ SymmetricTree figures are available in `visualization_notebooks/` (PDF and PNG).
 
 ## Kaggle Notebooks
 
-Training was run on Kaggle (2× T4 GPU, 30 GB RAM). Public notebooks:
+Training was run on Kaggle (30 GB RAM). Public notebooks:
 
 | Notebook | grow_policy | Kaggle link |
 |----------|-------------|-------------|
