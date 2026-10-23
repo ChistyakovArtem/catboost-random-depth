@@ -1,3 +1,5 @@
+> This branch adds opt-in native hyperparameter ranges and experimental depth schedules; see [PER_TREE_RANGES.md](PER_TREE_RANGES.md). The historical hardcoded-depth experiments below are separate. The initial matched single-model TabArena screen found no promotion; follow-up experiments are in progress.
+
 # Stronger CatBoost via Per-Tree Depth Randomization
 
 > **TL;DR** — A **6-line change** to CatBoost's training loop that randomly samples tree depth from `U[3, 9]` at every boosting iteration instead of using a fixed `depth=6`. The modified model consistently **outperforms the depth=6 baseline** across 30+ datasets (TabM + OpenML) under equal and time-adjusted training budgets, with no extra hyperparameter tuning.

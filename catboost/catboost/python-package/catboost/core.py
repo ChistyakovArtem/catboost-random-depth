@@ -5422,7 +5422,12 @@ class CatBoostClassifier(CatBoost):
         embedding_features=None,
         callback=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]
@@ -6055,7 +6060,12 @@ class CatBoostRegressor(CatBoost):
         text_processing=None,
         embedding_features=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]
@@ -6463,7 +6473,12 @@ class CatBoostRanker(CatBoost):
         text_processing=None,
         embedding_features=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]

@@ -349,6 +349,11 @@ void NCatboostOptions::PlainJsonToOptions(
     CopyOption(plainOptions, "rsm", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "leaf_estimation_iterations", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "leaf_estimation_backtracking", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_ranges", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_seed", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_warmup", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_depth_sampling", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_step_policy", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "depth", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "l2_leaf_reg", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "meta_l2_exponent", &treeOptions, &seenKeys);
@@ -674,6 +679,16 @@ void NCatboostOptions::ConvertOptionsToPlainJson(
         CopyOption(treeOptions, "leaf_estimation_backtracking", &plainOptionsJson, &seenKeys);
         DeleteSeenOption(&optionsCopyTree, "leaf_estimation_backtracking");
 
+        CopyOption(treeOptions, "per_tree_ranges", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_ranges");
+        CopyOption(treeOptions, "per_tree_seed", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_seed");
+        CopyOption(treeOptions, "per_tree_warmup", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_warmup");
+        CopyOption(treeOptions, "per_tree_depth_sampling", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_depth_sampling");
+        CopyOption(treeOptions, "per_tree_step_policy", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_step_policy");
         CopyOption(treeOptions, "depth", &plainOptionsJson, &seenKeys);
         DeleteSeenOption(&optionsCopyTree, "depth");
 

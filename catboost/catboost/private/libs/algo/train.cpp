@@ -1,4 +1,5 @@
 #include "train.h"
+#include "per_tree_ranges.h"
 
 #include "approx_calcer.h"
 #include "approx_calcer_helpers.h"
@@ -170,16 +171,7 @@ static void CalcApproxesLeafwise(
 
 void TrainOneIteration(const NCB::TTrainingDataProviders& data, TLearnContext* ctx) {
 
-    // --- My Change Start ---
-    const ui32 MIN_DEPTH = 3; // Constants, hardcoded for now, but can be made configurable if needed
-    const ui32 MAX_DEPTH = 9;
-
-    auto& rand = ctx->LearnProgress->Rand;
-    auto& treeOptions = ctx->Params.ObliviousTreeOptions;
-
-    ui32 newDepth = MIN_DEPTH + (rand.GenRand() % (MAX_DEPTH - MIN_DEPTH + 1));
-    treeOptions->MaxDepth.Set(newDepth);
-    // --- My Change End ---
+    const TPerTreeRangesGuard rangeGuard(ctx);
 
     const auto error = BuildError(ctx->Params, ctx->ObjectiveDescriptor);
     ctx->LearnProgress->HessianType = error->GetHessianType();
@@ -255,6 +247,9 @@ void TrainOneIteration(const NCB::TTrainingDataProviders& data, TLearnContext* c
         );
     }
     CheckInterrupted(); // check after long-lasting operation
+    if (std::holds_alternative<TSplitTree>(bestTree)) {
+        rangeGuard.SetStepForDepth(std::get<TSplitTree>(bestTree).GetDepth());
+    }
     {
         TVector<TFold*> trainFolds;
         for (int foldId = 0; foldId < foldCount; ++foldId) {

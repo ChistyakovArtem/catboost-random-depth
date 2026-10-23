@@ -281,7 +281,7 @@ void TModelTrees::TruncateTrees(size_t begin, size_t end) {
     //TODO(eermishkina): support non symmetric trees
     CB_ENSURE(IsOblivious(), "Truncate support only symmetric trees");
     CB_ENSURE(begin <= end, "begin tree index should be not greater than end tree index.");
-    CB_ENSURE(end <= GetModelTreeData()->GetTreeSplits().size(), "end tree index should be not greater than tree count.");
+    CB_ENSURE(end <= GetModelTreeData()->GetTreeSizes().size(), "end tree index should be not greater than tree count.");
     auto savedScaleAndBias = GetScaleAndBias();
     TObliviousTreeBuilder builder(FloatFeatures,
                                   CatFeatures,

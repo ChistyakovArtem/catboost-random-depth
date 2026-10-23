@@ -244,6 +244,12 @@ public:
         const TCalcScoreFold& fold,
         NPar::ILocalExecutor* localExecutor
     );
+    // Bootstrap options may change between trees. Sampling and index-cache
+    // layout must use the current rate, including transitions to/from 1.
+    void SetBernoulliSampleRate(float sampleRate) {
+        Y_ASSERT(sampleRate > 0.0f && sampleRate <= 1.0f);
+        BernoulliSampleRate = sampleRate;
+    }
     void Sample(
         const TFold& fold,
         ESamplingUnit samplingUnit,

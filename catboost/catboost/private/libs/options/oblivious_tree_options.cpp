@@ -9,7 +9,12 @@
 #include <util/string/cast.h>
 
 NCatboostOptions::TObliviousTreeLearnerOptions::TObliviousTreeLearnerOptions(ETaskType taskType)
-    : MaxDepth("depth", 6)
+    : PerTreeRanges("per_tree_ranges", {})
+      , PerTreeSeed("per_tree_seed", 0)
+      , PerTreeWarmup("per_tree_warmup", 64)
+      , PerTreeDepthSampling("per_tree_depth_sampling", "uniform")
+      , PerTreeStepPolicy("per_tree_step_policy", "fixed")
+      , MaxDepth("depth", 6)
       , LeavesEstimationIterations("leaf_estimation_iterations", 1)
       , LeavesEstimationMethod("leaf_estimation_method", ELeavesEstimation::Gradient)
       , L2Reg("l2_leaf_reg", 3.0)
@@ -50,7 +55,7 @@ NCatboostOptions::TObliviousTreeLearnerOptions::TObliviousTreeLearnerOptions(ETa
 
 void NCatboostOptions::TObliviousTreeLearnerOptions::Load(const NJson::TJsonValue& options) {
     CheckedLoad(options,
-            &MaxDepth, &LeavesEstimationIterations, &LeavesEstimationMethod, &L2Reg, &MetaL2Exponent, &MetaL2Frequency, &ModelSizeReg,
+            &PerTreeRanges, &PerTreeSeed, &PerTreeWarmup, &PerTreeDepthSampling, &PerTreeStepPolicy, &MaxDepth, &LeavesEstimationIterations, &LeavesEstimationMethod, &L2Reg, &MetaL2Exponent, &MetaL2Frequency, &ModelSizeReg,
             &RandomStrength, &RandomScoreType,
             &BootstrapConfig, &FoldSizeLossNormalization, &AddRidgeToTargetFunctionFlag,
             &ScoreFunction,
@@ -76,7 +81,7 @@ void NCatboostOptions::TObliviousTreeLearnerOptions::Load(const NJson::TJsonValu
 }
 
 void NCatboostOptions::TObliviousTreeLearnerOptions::Save(NJson::TJsonValue* options) const {
-    SaveFields(options, MaxDepth, LeavesEstimationIterations, LeavesEstimationMethod, L2Reg, MetaL2Exponent, MetaL2Frequency, ModelSizeReg,
+    SaveFields(options, PerTreeRanges, PerTreeSeed, PerTreeWarmup, PerTreeDepthSampling, PerTreeStepPolicy, MaxDepth, LeavesEstimationIterations, LeavesEstimationMethod, L2Reg, MetaL2Exponent, MetaL2Frequency, ModelSizeReg,
             RandomStrength, RandomScoreType,
             BootstrapConfig, FoldSizeLossNormalization, AddRidgeToTargetFunctionFlag,
             ScoreFunction,
@@ -97,7 +102,7 @@ void NCatboostOptions::TObliviousTreeLearnerOptions::Save(NJson::TJsonValue* opt
 }
 
 bool NCatboostOptions::TObliviousTreeLearnerOptions::operator==(const TObliviousTreeLearnerOptions& rhs) const {
-    return std::tie(MaxDepth, LeavesEstimationIterations, LeavesEstimationMethod, L2Reg, MetaL2Exponent, MetaL2Frequency, ModelSizeReg,
+    return std::tie(PerTreeRanges, PerTreeSeed, PerTreeWarmup, PerTreeDepthSampling, PerTreeStepPolicy, MaxDepth, LeavesEstimationIterations, LeavesEstimationMethod, L2Reg, MetaL2Exponent, MetaL2Frequency, ModelSizeReg,
             RandomStrength, RandomScoreType,
             BootstrapConfig, Rsm, SamplingFrequency, ObservationsToBootstrap, FoldSizeLossNormalization,
             AddRidgeToTargetFunctionFlag, ScoreFunction, GrowPolicy, MaxLeaves, MinDataInLeaf, MaxCtrComplexityForBordersCaching,
@@ -105,7 +110,7 @@ bool NCatboostOptions::TObliviousTreeLearnerOptions::operator==(const TOblivious
             DevExclusiveFeaturesBundleMaxBuckets, SparseFeaturesConflictFraction, FixedBinarySplits,
             MonotoneConstraints, DevLeafwiseApproxes, FeaturePenalties
             ) ==
-        std::tie(rhs.MaxDepth, rhs.LeavesEstimationIterations, rhs.LeavesEstimationMethod, rhs.L2Reg, rhs.MetaL2Exponent, rhs.MetaL2Frequency, rhs.ModelSizeReg,
+        std::tie(rhs.PerTreeRanges, rhs.PerTreeSeed, rhs.PerTreeWarmup, rhs.PerTreeDepthSampling, rhs.PerTreeStepPolicy, rhs.MaxDepth, rhs.LeavesEstimationIterations, rhs.LeavesEstimationMethod, rhs.L2Reg, rhs.MetaL2Exponent, rhs.MetaL2Frequency, rhs.ModelSizeReg,
                 rhs.RandomStrength, rhs.RandomScoreType,
                 rhs.BootstrapConfig, rhs.Rsm, rhs.SamplingFrequency,
                 rhs.ObservationsToBootstrap, rhs.FoldSizeLossNormalization, rhs.AddRidgeToTargetFunctionFlag,
@@ -121,6 +126,44 @@ bool NCatboostOptions::TObliviousTreeLearnerOptions::operator!=(const TOblivious
 
 void NCatboostOptions::TObliviousTreeLearnerOptions::Validate() const {
     BootstrapConfig.Get().Validate();
+
+    CB_ENSURE(PerTreeDepthSampling == "uniform" || PerTreeDepthSampling == "stratified" || PerTreeDepthSampling == "curriculum" || PerTreeDepthSampling == "leaf_balanced" || PerTreeDepthSampling == "sqrt_leaf_balanced",
+              "per_tree_depth_sampling must be uniform, stratified, curriculum, leaf_balanced or sqrt_leaf_balanced");
+    CB_ENSURE(PerTreeStepPolicy == "fixed" || PerTreeStepPolicy == "inverse_depth", "Unknown per_tree_step_policy");
+    CB_ENSURE(PerTreeStepPolicy == "fixed" || PerTreeRanges.Get().contains("depth"), "Depth-aware steps need depth bounds");
+    CB_ENSURE(PerTreeDepthSampling != "curriculum" || PerTreeRanges.Get().contains("depth"), "Curriculum needs depth bounds");
+    CB_ENSURE((PerTreeDepthSampling != "leaf_balanced" && PerTreeDepthSampling != "sqrt_leaf_balanced") ||
+              PerTreeRanges.Get().contains("depth"), "Leaf-balanced sampling needs depth bounds");
+    if (!PerTreeRanges.Get().empty()) {
+        CB_ENSURE(TaskType == ETaskType::CPU && GrowPolicy == EGrowPolicy::SymmetricTree,
+                  "per_tree_ranges supports single-host CPU SymmetricTree research training only");
+        for (const auto& item : PerTreeRanges.Get()) {
+            const auto& key = item.first;
+            const auto& range = item.second;
+            CB_ENSURE(range.size() == 2 && std::isfinite(range[0]) && std::isfinite(range[1]) && range[0] <= range[1],
+                      "Expected finite [lower, upper] for " << key);
+            const double lo = range[0], hi = range[1];
+            if (key == "depth") {
+                CB_ENSURE(lo >= 1 && hi <= 12 && floor(lo) == lo && floor(hi) == hi, "Depth range must contain integers in [1,12]");
+                CB_ENSURE(MaxDepth.Get() >= hi, "depth must be at least the maximum per-tree depth (allocation envelope)");
+            } else if (key == "leaf_estimation_iterations") {
+                CB_ENSURE(lo >= 1 && hi <= 20 && floor(lo) == lo && floor(hi) == hi, "Leaf iterations must be integers in [1,20]");
+            } else if (key == "l2_leaf_reg") {
+                CB_ENSURE(lo > 0 && hi <= 100, "L2 range must lie in (0,100]");
+            } else if (key == "random_strength") {
+                CB_ENSURE(lo >= 0 && hi <= 100, "random_strength range must lie in [0,100]");
+            } else if (key == "rsm" || key == "subsample") {
+                CB_ENSURE(lo > 0 && hi <= 1, "Sampling ranges must lie in (0,1]");
+                if (key == "subsample") {
+                    CB_ENSURE(BootstrapConfig->GetBootstrapType() == EBootstrapType::Bernoulli,
+                              "Per-tree subsample requires Bernoulli bootstrap");
+                }
+            } else {
+                CB_ENSURE(false, "Unsupported per-tree parameter: " << key);
+            }
+        }
+    }
+
     const float rsm = Rsm.Get();
     CB_ENSURE(rsm > 0 && rsm <= 1, "Rsm should be in (0, 1]");
     const ui32 maxFullBinaryTreeDepth = 16;
