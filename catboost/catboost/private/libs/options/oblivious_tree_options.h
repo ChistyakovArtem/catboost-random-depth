@@ -23,6 +23,10 @@ namespace NCatboostOptions {
 
         void Validate() const;
 
+        TOption<TMap<TString, TVector<double>>> PerTreeRanges;
+        TOption<ui64> PerTreeSeed;
+        TOption<ui32> PerTreeWarmup;
+        TOption<TString> PerTreeDepthSampling;
         TOption<ui32> MaxDepth;
         TOption<ui32> LeavesEstimationIterations;
         TOption<ELeavesEstimation> LeavesEstimationMethod;

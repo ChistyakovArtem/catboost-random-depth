@@ -24,7 +24,8 @@ TVector<TBucketStats, TPoolAllocator>& TBucketStatsCache::GetStats(
 ) {
     TVector<TBucketStats, TPoolAllocator>* splitStats;
     with_lock(Lock) {
-        if (Stats.contains(splitEnsemble) && Stats[splitEnsemble] != nullptr) {
+        if (Stats.contains(splitEnsemble) && Stats[splitEnsemble] != nullptr
+            && Stats[splitEnsemble]->ysize() >= MaxBodyTailCount * ApproxDimension * splitStatsCount) {
             splitStats = Stats[splitEnsemble].Get();
             Y_ASSERT(splitStats->ysize() >= splitStatsCount);
             *areStatsDirty = false;
