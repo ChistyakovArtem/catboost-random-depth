@@ -247,6 +247,9 @@ void TrainOneIteration(const NCB::TTrainingDataProviders& data, TLearnContext* c
         );
     }
     CheckInterrupted(); // check after long-lasting operation
+    if (std::holds_alternative<TSplitTree>(bestTree)) {
+        rangeGuard.SetStepForDepth(std::get<TSplitTree>(bestTree).GetDepth());
+    }
     {
         TVector<TFold*> trainFolds;
         for (int foldId = 0; foldId < foldCount; ++foldId) {

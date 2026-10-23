@@ -1,4 +1,4 @@
-> This branch adds opt-in native hyperparameter ranges; see [PER_TREE_RANGES.md](PER_TREE_RANGES.md). The historical hardcoded-depth experiments below are separate from the pending single-model tuned-frontier benchmark.
+> This branch adds opt-in native hyperparameter ranges and experimental depth schedules; see [PER_TREE_RANGES.md](PER_TREE_RANGES.md). The historical hardcoded-depth experiments below are separate. The initial matched single-model TabArena screen found no promotion; follow-up experiments are in progress.
 
 # Stronger CatBoost via Per-Tree Depth Randomization
 

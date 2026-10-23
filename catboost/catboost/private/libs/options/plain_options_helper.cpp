@@ -353,6 +353,7 @@ void NCatboostOptions::PlainJsonToOptions(
     CopyOption(plainOptions, "per_tree_seed", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "per_tree_warmup", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "per_tree_depth_sampling", &treeOptions, &seenKeys);
+    CopyOption(plainOptions, "per_tree_step_policy", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "depth", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "l2_leaf_reg", &treeOptions, &seenKeys);
     CopyOption(plainOptions, "meta_l2_exponent", &treeOptions, &seenKeys);
@@ -686,6 +687,8 @@ void NCatboostOptions::ConvertOptionsToPlainJson(
         DeleteSeenOption(&optionsCopyTree, "per_tree_warmup");
         CopyOption(treeOptions, "per_tree_depth_sampling", &plainOptionsJson, &seenKeys);
         DeleteSeenOption(&optionsCopyTree, "per_tree_depth_sampling");
+        CopyOption(treeOptions, "per_tree_step_policy", &plainOptionsJson, &seenKeys);
+        DeleteSeenOption(&optionsCopyTree, "per_tree_step_policy");
         CopyOption(treeOptions, "depth", &plainOptionsJson, &seenKeys);
         DeleteSeenOption(&optionsCopyTree, "depth");
 

@@ -27,6 +27,7 @@ namespace NCatboostOptions {
         TOption<ui64> PerTreeSeed;
         TOption<ui32> PerTreeWarmup;
         TOption<TString> PerTreeDepthSampling;
+        TOption<TString> PerTreeStepPolicy;
         TOption<ui32> MaxDepth;
         TOption<ui32> LeavesEstimationIterations;
         TOption<ELeavesEstimation> LeavesEstimationMethod;

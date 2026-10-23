@@ -23,16 +23,31 @@ class TPerTreeRangesGuard {
     using TOptions = NCatboostOptions::TObliviousTreeLearnerOptions;
     NCatboostOptions::TOption<TOptions>& Holder;
     const TOptions Original;
+    NCatboostOptions::TOption<NCatboostOptions::TBoostingOptions>& BoostHolder;
+    const NCatboostOptions::TBoostingOptions OriginalBoosting;
+    const ui64 Iteration;
     bool Active;
 
 public:
     explicit TPerTreeRangesGuard(TLearnContext* ctx)
         : Holder(ctx->Params.ObliviousTreeOptions)
         , Original(Holder.Get())
+        , BoostHolder(ctx->Params.BoostingOptions)
+        , OriginalBoosting(BoostHolder.Get())
+        , Iteration(ctx->LearnProgress->TreeStruct.size())
         , Active(!Original.PerTreeRanges.Get().empty())
     {
         if (!Active) { return; }
         CB_ENSURE(ctx->Params.SystemOptions->IsSingleHost(), "Per-tree ranges require single-host training");
+        if (Original.PerTreeStepPolicy != "fixed") {
+            CB_ENSURE(OriginalBoosting.BoostingType == EBoostingType::Plain && OriginalBoosting.ModelShrinkRate == 0,
+                      "Depth-aware steps require Plain boosting and zero model_shrink_rate");
+            CB_ENSURE(OriginalBoosting.LearningRate.Get() <= 0.100001,
+                      "Depth-aware steps require base learning_rate at most 0.1");
+            const auto loss = ctx->Params.LossFunctionDescription->GetLossFunction();
+            CB_ENSURE(loss == ELossFunction::RMSE || loss == ELossFunction::Logloss || loss == ELossFunction::MultiClass,
+                      "Depth-aware steps support RMSE, Logloss and MultiClass research losses");
+        }
         auto& options = Holder.Get();
         const ui64 iteration = ctx->LearnProgress->TreeStruct.size();
         const ui64 seed = PerTreeMix(ctx->Params.RandomSeed.Get() + 0x517cc1b727220a95ULL) ^ PerTreeMix(Original.PerTreeSeed.Get());
@@ -56,6 +71,10 @@ public:
                 std::sort(order.begin(), order.end());
                 value = lo + order[iteration % count].second;
             }
+            if (key == "depth" && Original.PerTreeDepthSampling == "curriculum" && iteration < Original.PerTreeWarmup.Get()) {
+                const double cap = lo + std::floor((hi - lo) * iteration / Original.PerTreeWarmup.Get());
+                value = lo + std::floor(u * (cap - lo + 1));
+            }
             // Start from at least the backbone's regularization and relax
             // continuously. Learning rate deliberately remains fixed.
             if (Original.PerTreeWarmup.Get() > iteration && (key == "l2_leaf_reg" || key == "random_strength")) {
@@ -73,6 +92,21 @@ public:
 
     ~TPerTreeRangesGuard() {
         if (Active) { Holder.Set(Original); }
+        if (Active && Original.PerTreeStepPolicy != "fixed") { BoostHolder.Set(OriginalBoosting); }
+    }
+
+    // Called only after the structure is selected. The split-noise schedule
+    // continues using the base rate; both approximate updates and stored leaf
+    // values then use this bounded, depth-aware step.
+    void SetStepForDepth(ui32 depth) const {
+        if (!Active || Original.PerTreeStepPolicy == "fixed") { return; }
+        const auto& range = Original.PerTreeRanges.Get().find("depth")->second;
+        const double centre = (range[0] + range[1]) / 2;
+        double factor = std::max(0.5, std::min(2.0, (centre + 1) / (depth + 1.0)));
+        if (factor > 1 && Iteration < Original.PerTreeWarmup.Get()) {
+            factor = 1 + (factor - 1) * Iteration / Original.PerTreeWarmup.Get();
+        }
+        BoostHolder->LearningRate.Set(static_cast<float>(std::min(0.1, OriginalBoosting.LearningRate.Get() * factor)));
     }
 
     TPerTreeRangesGuard(const TPerTreeRangesGuard&) = delete;

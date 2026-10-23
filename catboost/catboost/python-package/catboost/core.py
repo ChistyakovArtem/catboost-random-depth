@@ -5377,10 +5377,6 @@ class CatBoostClassifier(CatBoost):
         sampling_unit=None,
         sampling_frequency=None,
         dev_score_calc_obj_block_size=None,
-        per_tree_ranges=None,
-        per_tree_seed=None,
-        per_tree_warmup=None,
-        per_tree_depth_sampling=None,
         dev_efb_max_buckets=None,
         sparse_features_conflict_fraction=None,
         max_depth=None,
@@ -5426,7 +5422,12 @@ class CatBoostClassifier(CatBoost):
         embedding_features=None,
         callback=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]
@@ -6016,10 +6017,6 @@ class CatBoostRegressor(CatBoost):
         sampling_frequency=None,
         sampling_unit=None,
         dev_score_calc_obj_block_size=None,
-        per_tree_ranges=None,
-        per_tree_seed=None,
-        per_tree_warmup=None,
-        per_tree_depth_sampling=None,
         dev_efb_max_buckets=None,
         sparse_features_conflict_fraction=None,
         max_depth=None,
@@ -6063,7 +6060,12 @@ class CatBoostRegressor(CatBoost):
         text_processing=None,
         embedding_features=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]
@@ -6428,10 +6430,6 @@ class CatBoostRanker(CatBoost):
         sampling_frequency=None,
         sampling_unit=None,
         dev_score_calc_obj_block_size=None,
-        per_tree_ranges=None,
-        per_tree_seed=None,
-        per_tree_warmup=None,
-        per_tree_depth_sampling=None,
         dev_efb_max_buckets=None,
         sparse_features_conflict_fraction=None,
         max_depth=None,
@@ -6475,7 +6473,12 @@ class CatBoostRanker(CatBoost):
         text_processing=None,
         embedding_features=None,
         eval_fraction=None,
-        fixed_binary_splits=None
+        fixed_binary_splits=None,
+        per_tree_ranges=None,
+        per_tree_seed=None,
+        per_tree_warmup=None,
+        per_tree_depth_sampling=None,
+        per_tree_step_policy=None,
     ):
         params = {}
         not_params = ["not_params", "self", "params", "__class__"]
