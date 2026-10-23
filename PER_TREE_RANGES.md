@@ -57,6 +57,11 @@ noise are blended progressively from the fixed backbone value. Learning rate
 remains fixed by default. The initial research scope is single-host CPU symmetric trees;
 classification and regression are covered by the checks.
 
+This warmup also applies to constant intervals below the backbone's L2 or split
+noise. Such an interval describes a transition during warmup, followed by the
+constant value. Set `per_tree_warmup=0` to use that value from the first tree, or
+set the backbone HP to the same value for parity with a fixed-HP model.
+
 Two experimental schedules are available. `per_tree_depth_sampling="curriculum"`
 starts with the lower depth bound, increases the allowed upper bound linearly
 over `per_tree_warmup` iterations, then samples the full interval uniformly.
@@ -100,8 +105,9 @@ already reads the current option directly and does not need that refresh.
 
 Individual synthetic checks now isolate each of the six HPs on regression,
 binary classification and multiclass data. Each range changes predictions and
-responds to its sampler seed, repeats exactly with eight threads, and a constant
-range matches the corresponding global HP exactly. Row fractions 0.1, 0.99 and
+responds to its sampler seed and repeats exactly with eight threads. Constant
+ranges match their global controls when the L2/split-noise warmup does not alter
+their values, including intervals equal to the backbone HPs. Row fractions 0.1, 0.99 and
 1.0 also match their global controls. Unaffected predictions match the preserved
 earlier engine exactly; interrupted training with all six ranges resumes exactly,
 and the repaired models load and predict exactly in stock CatBoost 1.2.8.
