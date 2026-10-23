@@ -91,6 +91,21 @@ building a shallow tree must not be reused if their vector is too small for a
 later deeper tree. The old release build could access undersized storage. The
 new check reallocates that feature's buffer and marks its statistics dirty.
 
+The Bernoulli document sampler also caches its sample rate at creation. Updating
+the training option alone therefore left `subsample` ranges inactive in the
+earlier prototype. The repaired implementation refreshes that cached rate before
+sampling a new tree, including transitions to or from a full sample. Ordinary
+fixed-parameter training keeps its existing path. Pairwise Bernoulli sampling
+already reads the current option directly and does not need that refresh.
+
+Individual synthetic checks now isolate each of the six HPs on regression,
+binary classification and multiclass data. Each range changes predictions and
+responds to its sampler seed, repeats exactly with eight threads, and a constant
+range matches the corresponding global HP exactly. Row fractions 0.1, 0.99 and
+1.0 also match their global controls. Unaffected predictions match the preserved
+earlier engine exactly; interrupted training with all six ranges resumes exactly,
+and the repaired models load and predict exactly in stock CatBoost 1.2.8.
+
 The patch also corrects the prefix bound in `TruncateTrees`: the end index must
 be checked against the number of trees, rather than the number of splits.
 Constant trees have zero splits, so the old check can reject a valid prefix.
@@ -123,6 +138,14 @@ the fixed grid within that budget, a 49% dataset win rate, and an uncertainty
 interval crossing 1. This is development-validation evidence, not independent
 test evidence; no frontier improvement is claimed.
 
+Those historic depth-plus-regularization results, including the 100-config
+follow-up, used the earlier implementation with fixed row sampling. They do not
+evaluate the intended row-varying method. A separate corrected study reuses the
+same frozen HP draws and reruns only the affected methods. Depth-only studies and
+fixed controls are unaffected. The subsequent inverse-leaf, square-root-leaf and
+64-tree uniform-warmup depth studies also failed their 25-config promotion rule;
+their native median matched-cost error ratios were 1.0082, 1.0085 and 1.0125.
+
 Average depth or tree count alone is not an inference-cost guarantee; benchmark
 actual latency and model bytes. The initial uniform ranges used fewer trees but
 more leaves and had higher median inference cost in matched configurations.
@@ -139,3 +162,16 @@ eight-thread repeats, native evaluation versus saved-model predictions, and
 stock-CBM round trips for regression, binary and multiclass tasks. Separate
 compatibility checks also verified the earlier modes against the preserved
 previous engine and interrupted snapshot recovery.
+
+To independently check each HP's effect, run the portable synthetic fixture
+with the SHA256 of the modified package's `_catboost.so`:
+
+```bash
+python research/check_hp_effects.py \
+  --package /path/to/modified/catboost/python-package \
+  --engine SHA256_OF_MODIFIED_EXTENSION \
+  --output /tmp/catboost-hp-effects --require-pass
+```
+
+Without `--require-pass`, the fixture writes an honest diagnostic even for an
+older broken engine; its `semantics_passed` field reports the actual outcome.

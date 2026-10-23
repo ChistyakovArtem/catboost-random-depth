@@ -551,6 +551,13 @@ void Bootstrap(
     if (!isPairwiseScoring) {
         CalcWeightedData(learnSampleCount, params.BoostingOptions->BoostingType.Get(), localExecutor, fold);
     }
+    // TCalcScoreFold caches its Bernoulli rate at creation. A per-tree
+    // option update alone does not reach the actual document sampler.
+    // Pairwise Bernoulli sampling already uses takenFraction above.
+    if (bootstrapType == EBootstrapType::Bernoulli && !isPairwiseScoring &&
+        params.ObliviousTreeOptions->PerTreeRanges.Get().contains("subsample")) {
+        sampledDocs->SetBernoulliSampleRate(takenFraction);
+    }
     sampledDocs->Sample(
         *fold,
         samplingUnit,
