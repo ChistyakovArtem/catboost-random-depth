@@ -38,7 +38,7 @@ Supported ranges use finite inclusive endpoints with lower <= upper:
 
 | Parameter | Domain | Sampling |
 | --- | --- | --- |
-| depth | Integer 1..12 | Discrete uniform, shuffled balanced blocks, or gradual upper bound |
+| depth | Integer 1..12 | Uniform, shuffled balanced blocks, gradual upper bound, or leaf-cost weighting |
 | l2_leaf_reg | (0, 100] | Log uniform |
 | random_strength | [0, 100] | Uniform |
 | rsm | (0, 1] | Uniform |
@@ -68,6 +68,23 @@ model shrinkage, base learning rate <=0.1, and RMSE, Logloss or MultiClass loss.
 The split-noise schedule still uses the base learning rate. Scaled leaf values
 are stored directly in the ordinary model, so serving needs no schedule logic.
 These schedules are research hypotheses; their frontier benefit is unproven.
+
+Two additional experimental depth distributions account for the exponential
+leaf capacity of a symmetric tree. `per_tree_depth_sampling="leaf_balanced"`
+assigns probability proportional to `2**(-(d-lower))`;
+`per_tree_depth_sampling="sqrt_leaf_balanced"` uses
+`2**(-0.5*(d-lower))`. Both require an explicit depth interval and progressively
+unlock the upper depth bound over `per_tree_warmup` iterations, then sample the
+full interval with those weights. Learning rate stays fixed unless the separate
+step policy is explicitly requested. These are maximum depths: CatBoost may
+naturally stop an individual tree earlier.
+
+For interval `[lo, hi]`, the stationary expected leaf capacity is
+`(hi-lo+1)*2**(lo-1)/(1-2**(-(hi-lo+1)))` for inverse-leaf weighting, and
+`2**((lo+hi)/2)` for square-root weighting. These quantities describe the
+sampler, not measured serving latency. Comparisons also need a fixed-depth
+control based on the corresponding capacity and a uniform sampler with the
+same warmup. No frontier benefit is claimed for either new distribution.
 
 The cache correction is necessary for variable depth: statistics cached while
 building a shallow tree must not be reused if their vector is too small for a
@@ -99,8 +116,26 @@ the prespecified promotion rule. Median error ratios at the baseline's inference
 cost were 1.0050, 1.0121 and 1.0112 respectively; smaller is better. These are
 exploratory validation results, not test results. A matched fixed-depth control
 based on expected leaf capacity was also run. Structured schedules and bounded
-depth ranges are follow-up experiments; no frontier improvement is claimed.
+depth ranges also failed the primary screen. An exploratory half-cost signal
+for depth plus regularization did not confirm in a matched 100-config follow-up:
+the completed dense stock comparison had a median error ratio 0.99627 against
+the fixed grid within that budget, a 49% dataset win rate, and an uncertainty
+interval crossing 1. This is development-validation evidence, not independent
+test evidence; no frontier improvement is claimed.
 
 Average depth or tree count alone is not an inference-cost guarantee; benchmark
 actual latency and model bytes. The initial uniform ranges used fewer trees but
 more leaves and had higher median inference cost in matched configurations.
+
+Run the standalone full-depth synthetic fixture in the stock wheel environment:
+
+```bash
+python research/check_leaf_cost_sampling.py \
+  --native-package /path/to/modified/catboost/python-package
+```
+
+It checks rare late depth 12 trees, an independent sampling reference, exact
+eight-thread repeats, native evaluation versus saved-model predictions, and
+stock-CBM round trips for regression, binary and multiclass tasks. Separate
+compatibility checks also verified the earlier modes against the preserved
+previous engine and interrupted snapshot recovery.

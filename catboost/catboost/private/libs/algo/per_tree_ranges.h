@@ -75,6 +75,31 @@ public:
                 const double cap = lo + std::floor((hi - lo) * iteration / Original.PerTreeWarmup.Get());
                 value = lo + std::floor(u * (cap - lo + 1));
             }
+            // Weight by inverse leaf cost (or its square root), rather than
+            // giving exponentially expensive depths equal probability. The
+            // first warmup trees progressively unlock the upper depth bound.
+            if (key == "depth" && (Original.PerTreeDepthSampling == "leaf_balanced" ||
+                                   Original.PerTreeDepthSampling == "sqrt_leaf_balanced")) {
+                double upper = hi;
+                if (iteration < Original.PerTreeWarmup.Get()) {
+                    upper = lo + std::floor((hi - lo) * iteration / Original.PerTreeWarmup.Get());
+                }
+                const double alpha = Original.PerTreeDepthSampling == "leaf_balanced" ? 1.0 : 0.5;
+                double normalizer = 0;
+                for (int d = static_cast<int>(lo); d <= static_cast<int>(upper); ++d) {
+                    normalizer += std::exp2(-alpha * (d - lo));
+                }
+                const double threshold = u * normalizer;
+                double cumulative = 0;
+                value = upper;
+                for (int d = static_cast<int>(lo); d <= static_cast<int>(upper); ++d) {
+                    cumulative += std::exp2(-alpha * (d - lo));
+                    if (threshold < cumulative) {
+                        value = d;
+                        break;
+                    }
+                }
+            }
             // Start from at least the backbone's regularization and relax
             // continuously. Learning rate deliberately remains fixed.
             if (Original.PerTreeWarmup.Get() > iteration && (key == "l2_leaf_reg" || key == "random_strength")) {

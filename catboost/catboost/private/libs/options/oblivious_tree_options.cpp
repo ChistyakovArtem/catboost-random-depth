@@ -127,11 +127,13 @@ bool NCatboostOptions::TObliviousTreeLearnerOptions::operator!=(const TOblivious
 void NCatboostOptions::TObliviousTreeLearnerOptions::Validate() const {
     BootstrapConfig.Get().Validate();
 
-    CB_ENSURE(PerTreeDepthSampling == "uniform" || PerTreeDepthSampling == "stratified" || PerTreeDepthSampling == "curriculum",
-              "per_tree_depth_sampling must be uniform, stratified or curriculum");
+    CB_ENSURE(PerTreeDepthSampling == "uniform" || PerTreeDepthSampling == "stratified" || PerTreeDepthSampling == "curriculum" || PerTreeDepthSampling == "leaf_balanced" || PerTreeDepthSampling == "sqrt_leaf_balanced",
+              "per_tree_depth_sampling must be uniform, stratified, curriculum, leaf_balanced or sqrt_leaf_balanced");
     CB_ENSURE(PerTreeStepPolicy == "fixed" || PerTreeStepPolicy == "inverse_depth", "Unknown per_tree_step_policy");
     CB_ENSURE(PerTreeStepPolicy == "fixed" || PerTreeRanges.Get().contains("depth"), "Depth-aware steps need depth bounds");
     CB_ENSURE(PerTreeDepthSampling != "curriculum" || PerTreeRanges.Get().contains("depth"), "Curriculum needs depth bounds");
+    CB_ENSURE((PerTreeDepthSampling != "leaf_balanced" && PerTreeDepthSampling != "sqrt_leaf_balanced") ||
+              PerTreeRanges.Get().contains("depth"), "Leaf-balanced sampling needs depth bounds");
     if (!PerTreeRanges.Get().empty()) {
         CB_ENSURE(TaskType == ETaskType::CPU && GrowPolicy == EGrowPolicy::SymmetricTree,
                   "per_tree_ranges supports single-host CPU SymmetricTree research training only");
